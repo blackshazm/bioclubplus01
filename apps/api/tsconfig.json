@@ -19,7 +19,9 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@bio-club/core-users": ["../packages/core-users/src"],
-      "@bio-club/core-users/*": ["../packages/core-users/src/*"]
+      "@bio-club/core-users/*": ["../packages/core-users/src/*"],
+      "@bio-club/core-auth": ["../packages/core-auth/src"],
+      "@bio-club/core-auth/*": ["../packages/core-auth/src/*"]
     }
   }
 }
