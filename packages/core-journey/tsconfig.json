@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@bio-club/core-users/*": ["../core-users/src/*"]
+    }
+  },
+  "include": ["src/**/*", "__tests__/**/*"],
+  "references": [{ "path": "../core-users" }]
+}

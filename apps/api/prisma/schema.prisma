@@ -48,6 +48,8 @@ model User {
   beneficiaryCommissions Commission[]  @relation("BeneficiaryCommissions")
   payerCommissions       Commission[]  @relation("PayerCommissions")
 
+  journey         Journey?
+
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
 }
@@ -95,4 +97,25 @@ model Commission {
   payment         Payment          @relation(fields: [paymentId], references: [id])
 
   createdAt       DateTime         @default(now())
+}
+
+model Journey {
+  id              String    @id @default(cuid())
+  userId          String    @unique
+  totalProgress   Int       @default(0)
+  step1Completed  Boolean   @default(false)
+  step2Completed  Boolean   @default(false)
+  step3Completed  Boolean   @default(false)
+  step4Completed  Boolean   @default(false)
+  step5Completed  Boolean   @default(false)
+  step6Completed  Boolean   @default(false)
+  step7Completed  Boolean   @default(false)
+  step8Completed  Boolean   @default(false)
+  step9Completed  Boolean   @default(false)
+  step10Completed Boolean   @default(false)
+
+  user            User      @relation(fields: [userId], references: [id])
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 }
