@@ -13,6 +13,12 @@ enum AccountStatus {
   Suspended
 }
 
+enum SubscriptionStatus {
+  Ativa
+  Atrasada
+  Cancelada
+}
+
 model User {
   id              String        @id @default(cuid())
   name            String
@@ -27,6 +33,23 @@ model User {
   referrer        User?         @relation("Referrals", fields: [referrerId], references: [id])
   referrals       User[]        @relation("Referrals")
 
+  // One-to-one relationship with Subscription
+  subscription    Subscription?
+
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
+}
+
+model Subscription {
+  id              String             @id @default(cuid())
+  userId          String             @unique
+  status          SubscriptionStatus
+  startDate       DateTime
+  dueDate         Int
+  cancellationDate DateTime?
+
+  user            User               @relation(fields: [userId], references: [id])
+
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
 }
