@@ -26,7 +26,7 @@ export class PrismaUserRepository implements UserRepository {
   async save(user: DomainUser): Promise<void> {
     const data = this.toPrisma(user);
     await this.prisma.user.upsert({
-      where: { id: user.id || '' }, // Use an empty string for new users to ensure create is triggered
+      where: { id: user.id || '' },
       create: data,
       update: data,
     });
@@ -41,9 +41,8 @@ export class PrismaUserRepository implements UserRepository {
   }
 
   private toPrisma(domainUser: DomainUser): Prisma.UserCreateInput {
-    // The id is omitted here because upsert handles it in the 'where' clause.
-    // For create, Prisma will generate it. For update, it's identified by 'where'.
     return {
+      id: domainUser.id,
       name: domainUser.name,
       email: domainUser.email,
       cpf: domainUser.cpf,
@@ -51,6 +50,8 @@ export class PrismaUserRepository implements UserRepository {
       commissionRate: domainUser.commissionRate,
       accountStatus: domainUser.accountStatus,
       referrerId: domainUser.referrerId || null,
+      createdAt: domainUser.createdAt,
+      updatedAt: domainUser.updatedAt,
     };
   }
 }

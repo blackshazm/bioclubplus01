@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { ReferralsModule } from './referrals/referrals.module';
 import { PaymentModule } from './payments/payments.module';
+import { JourneyModule } from './journey/journey.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { PaymentModule } from './payments/payments.module';
     SubscriptionsModule,
     ReferralsModule,
     PaymentModule,
+    JourneyModule,
   ],
   controllers: [],
   providers: [],

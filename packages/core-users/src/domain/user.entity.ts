@@ -90,4 +90,9 @@ export class User {
   get accountStatus(): UserAccountStatus { return this.props.accountStatus; }
   get createdAt(): Date { return this.props.createdAt; }
   get updatedAt(): Date { return this.props.updatedAt; }
+
+  public updateCommissionRate(newRate: number): void {
+    this.props.commissionRate = newRate;
+    this.props.updatedAt = new Date();
+  }
 }
