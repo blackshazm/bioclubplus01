@@ -4,6 +4,8 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
+import { ReferralsModule } from './referrals/referrals.module';
+import { PaymentModule } from './payments/payments.module';
 
 @Module({
   imports: [
@@ -12,6 +14,8 @@ import { SubscriptionsModule } from './subscriptions/subscriptions.module';
     UsersModule,
     AuthModule,
     SubscriptionsModule,
+    ReferralsModule,
+    PaymentModule,
   ],
   controllers: [],
   providers: [],
