@@ -1,0 +1,24 @@
+{
+  "projectName": "BIO CLUB",
+  "architecture": "modular",
+  "patterns": ["clean-architecture", "dependency-injection", "repository-pattern"],
+  "frameworks": {
+    "frontend": "Next.js 15",
+    "backend": "NestJS",
+    "databaseORM": "Prisma"
+  },
+  "database": "PostgreSQL",
+  "conventions": {
+    "naming": "camelCaseForVariables",
+    "imports": "absolute-paths-from-root",
+    "errors": "typed-exceptions",
+    "testing": "jest-with-unit-tests-per-module"
+  },
+  "rules": [
+    "Core modules must never depend on UI or API modules.",
+    "Modules must communicate only through defined TypeScript interfaces.",
+    "Generate unit tests for every use-case created.",
+    "UI components must be stateless and receive data via props.",
+    "API endpoints must be thin and only orchestrate calls to core module use-cases."
+  ]
+}
